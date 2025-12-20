@@ -1,126 +1,370 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="fr">
- <head> 
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Mon CV Simple</title> 
-  <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diaime Makon Wilson | CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #071428;
+            --card-bg: #0e2940;
+            --accent-color: #ffffff;
+            --text-secondary: #9fc5ff;
+            --border-color: #13334a;
+            --primary-blue: #1976d2;
+            --accent-green: #00c853;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, var(--bg-color) 0%, #0a1e2e 100%);
+            color: var(--accent-color);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
-            color: #333;
+            padding: 40px 20px;
         }
         
-        header {
+        /* Header/Profile Section */
+        .cv-header {
             text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 20px;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
         }
         
-        h1 {
-            color: #3498db;
-            margin-bottom: 5px;
+        .cv-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
         }
         
-        h2 {
-            color: #2c3e50;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            margin-top: 25px;
+        .cv-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        
+        .cv-header .title {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
         
         .contact-info {
-            margin: 10px 0;
-        }
-        
-        .contact-info p {
-            margin: 5px 0;
-        }
-        
-        .experience, .education {
-            margin-bottom: 20px;
-        }
-        
-        .job, .degree {
-            margin-bottom: 15px;
-        }
-        
-        .job-title, .degree-name {
-            font-weight: bold;
-        }
-        
-        .company, .school {
-            color: #3498db;
-        }
-        
-        .date {
-            color: #7f8c8d;
-            font-style: italic;
-        }
-        
-        .skills-list {
             display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+        }
+        
+        /* Sections */
+        .cv-section {
+            margin-bottom: 40px;
+        }
+        
+        .cv-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary-blue);
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Entry Cards */
+        .entry {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-left: 3px solid var(--primary-blue);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .entry:hover {
+            transform: translateX(5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 8px 24px rgba(25, 118, 210, 0.1);
+        }
+        
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
             flex-wrap: wrap;
             gap: 10px;
         }
         
-        .skill {
-            background: #f0f0f0;
-            padding: 5px 10px;
-            border-radius: 3px;
+        .entry-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-color);
         }
-    </style> 
- </head> 
- <body> 
-  <header> 
-   <h1>Diaime Makon Wilson </h1> 
-   <p>Développeur web</p> 
-   <div class="contact-info"> 
-    <p>Téléphone : 692-696-934 </p> 
-    <p>Email : wilsondjems@gmail.com </p> 
-    <p>Adresse : Douala, Cameroun. </p> 
-   </div> 
-  </header> 
-  <section> 
-   <h2>Profil</h2> 
-   <p> Étudiant en Génie Informatique niveau 2 à L'IUT de Douala </p> 
-  </section> 
-  <section class="experience"> 
-   <h2>Expérience Professionnelle</h2> 
-   <div class="job"> 
-    <p class="job-title">Stagiaire</p> 
-    <p class="company">Clovis Télécom </p> 
-    <p class="date">07/2024 - 06/2025 </p> 
-    <ul> 
-     <li>Dépannage des téléphone </li> 
-     <li>Réception des clients </li> 
-    </ul> 
-   </div> 
-  </section> 
-  <section class="education"> 
-   <h2>Formation</h2> 
-   <div class="degree"> 
-    <p class="degree-name">GCE Advanced Level</p> 
-    <p class="school">CEGT de Malangue</p> 
-    <p class="date">2024</p> 
-   </div> 
-  </section> 
-  <section> 
-   <h2>Compétences</h2> 
-   <div class="skills-list"> <span class="skill">HTML</span> <span class="skill">CSS</span> <span class="skill">JavaScript</span><span class="skill">Gestion de projet</span> 
-   </div> 
-  </section> 
-  <section> 
-   <h2>Langues</h2> 
-   <ul> 
-    <li>Français - Langue maternelle</li> 
-    <li>Anglais - Courant</li> 
-    <li>Espagnol - Intermédiaire</li> 
-   </ul> 
-  </section> 
- 
+        
+        .entry-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        
+        .entry-date {
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .entry-description {
+            color: var(--text-secondary);
+            margin: 12px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .entry ul {
+            margin-left: 20px;
+            margin-top: 10px;
+            color: var(--text-secondary);
+        }
+        
+        .entry li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+        
+        .skill-badge {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 12px 16px;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .skill-badge:hover {
+            border-color: var(--primary-blue);
+            background: rgba(25, 118, 210, 0.1);
+            color: var(--accent-green);
+            transform: translateY(-2px);
+        }
+        
+        /* Languages */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .language-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+        
+        .language-item strong {
+            color: var(--accent-color);
+        }
+        
+        .language-item span {
+            color: var(--text-secondary);
+        }
+        
+        /* Profile Section */
+        .profile-text {
+            padding: 20px;
+            background: var(--card-bg);
+            border-left: 3px solid var(--accent-green);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: #333;
+            }
+            .cv-header, .entry, .skill-badge, .language-item, .profile-text {
+                background: white;
+                color: #333;
+            }
+            .cv-section h2 {
+                color: #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <!-- Header/Profile -->
+        <div class="cv-header">
+            <h1>Diaime Makon Wilson</h1>
+            <p class="title">Développeur Web Frontend & Designer UI/UX</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>📱</strong>
+                    <span>+237 692-696-934</span>
+                </div>
+                <div class="contact-item">
+                    <strong>✉️</strong>
+                    <span>wilsondjems@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <strong>📍</strong>
+                    <span>Douala, Cameroun</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <section class="cv-section">
+            <h2>À Propos</h2>
+            <p class="profile-text">
+                Étudiant en Génie Informatique en 2e année à l'IUT de Douala, passionné par le développement web et la création d'interfaces modernes. Fort de mes expériences pratiques en réparation et support technique, j'ai développé une compréhension solide des besoins utilisateurs et une capacité à résoudre des problèmes complexes. Je suis engagé à créer des solutions web accessibles, performantes et esthétiquement impactantes.
+            </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="cv-section">
+            <h2>Expérience Professionnelle</h2>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <p class="entry-title">Stagiaire - Support Technique</p>
+                        <p class="entry-subtitle">Clovis Télécom</p>
+                    </div>
+                    <p class="entry-date">Juil. 2024 - Juin 2025</p>
+                </div>
+                <p class="entry-description">Dépannage et maintenance des équipements de télécommunications</p>
+                <ul>
+                    <li>Diagnostic et réparation des appareils téléphoniques mobiles</li>
+                    <li>Assistance client technique et accueil des visiteurs</li>
+                    <li>Gestion des tickets de support et suivi des résolutions</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="cv-section">
+            <h2>Formation</h2>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <p class="entry-title">Génie Informatique - Niveau 2</p>
+                        <p class="entry-subtitle">IUT de Douala</p>
+                    </div>
+                    <p class="entry-date">En cours</p>
+                </div>
+                <p class="entry-description">Formation complète en développement logiciel, web et design</p>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <p class="entry-title">GCE Advanced Level (A-Level)</p>
+                        <p class="entry-subtitle">CEGT de Malangue</p>
+                    </div>
+                    <p class="entry-date">2024</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="cv-section">
+            <h2>Compétences Techniques</h2>
+            <div class="skills-container">
+                <span class="skill-badge">HTML5</span>
+                <span class="skill-badge">CSS3</span>
+                <span class="skill-badge">JavaScript</span>
+                <span class="skill-badge">UI/UX Design</span>
+                <span class="skill-badge">Web Design</span>
+                <span class="skill-badge">Responsive Design</span>
+                <span class="skill-badge">Git & GitHub</span>
+                <span class="skill-badge">Gestion de Projet</span>
+            </div>
+        </section>
+
+        <!-- Languages Section -->
+        <section class="cv-section">
+            <h2>Langues</h2>
+            <div class="languages-grid">
+                <div class="language-item">
+                    <span>🇫🇷</span>
+                    <div>
+                        <strong>Français</strong>
+                        <span style="display: block; font-size: 0.85rem;">Langue maternelle</span>
+                    </div>
+                </div>
+                <div class="language-item">
+                    <span>🇬🇧</span>
+                    <div>
+                        <strong>Anglais</strong>
+                        <span style="display: block; font-size: 0.85rem;">Courant</span>
+                    </div>
+                </div>
+                <div class="language-item">
+                    <span>🇪🇸</span>
+                    <div>
+                        <strong>Espagnol</strong>
+                        <span style="display: block; font-size: 0.85rem;">Débutant</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body></html>
