@@ -3,342 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <style>
-        :root {
-            --bg: #E1D4C2;
-            --text: #647bc9;
-            --accent: #6c63ff;
-            --muted: #bd5252;
-            --card-bg: #fff;
-            --radius: 10px;
-            --gap: 20px;
-            --max-w: 1200px;
-            --ff-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            margin: 0;
-            font-family: var(--ff-sans);
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--accent);
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px var(--gap);
-            background-color: var(--card-bg);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            font-weight: bold;
-        }
-
-        .hero1, .hero2 {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 40px var(--gap);
-            max-width: var(--max-w);
-            margin: 0 auto;
-        }
-
-        .hero-content1, .hero-content2 {
-            max-width: 600px;
-        }
-
-        .hero-content1 h2, .hero-content2 h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .hero-content1 p, .hero-content2 p {
-            color: var(--muted);
-            margin-bottom: 20px;
-        }
-        .hero-image img {
-            max-width: 300px;
-            border-radius: var(--radius);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .btn-outline, .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            border: 2px solid var(--accent);
-            border-radius: var(--radius);
-            color: var(--accent);
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline:hover, .btn:hover {
-            background-color: var(--accent);
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        .SERVICES, .PROJETS {
-            padding: 40px var(--gap);
-            max-width: var(--max-w);
-            margin: 0 auto;
-        }
-
-        .SERVICES h3, .PROJETS h3 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 24px;
-            animation: slideIn 1s ease-in-out;
-        }
-
-        .SERVICE {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .SERVICE h4 {
-            margin: 10px 0;
-        }
-
-        .projet-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--gap);
-            background-color: #eaeaea;
-            padding: var(--gap);
-            border-radius: var(--radius);
-        }
-
-        .projet-grid .thumb {
-            background-color: var(--card-bg);
-            border-radius: var(--radius);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .projet-grid .thumb:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact {
-            padding: 40px var(--gap);
-            max-width: var(--max-w);
-            margin: 0 auto;
-            background-color: var(--card-bg);
-            border-radius: var(--radius);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact h3 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .card-contact form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .card-contact input, .card-contact textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: var(--radius);
-            font-size: 16px;
-            width: 100%;
-        }
-
-        .card-contact button {
-            padding: 10px;
-            border: none;
-            border-radius: var(--radius);
-            background-color: var(--accent);
-            color: #fff;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .card-contact button:hover {
-            background-color: #574bff;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-             /* Media query for mobile devices (screen width 480px and below) */
-@media (max-width: 480px) {
-    .hero1, .hero2 {
-        display: flex;
-        flex-direction: column; /* Aligne les éléments verticalement */
-        align-items: center; /* Centre les éléments horizontalement */
-        text-align: center;
-    }
-
-    .hero-content1, .hero-content2 {
-        max-width: 100%;
-        padding: 0 10px;
-        margin-bottom: 20px; /* Ajoute un espace entre le texte et l'image */
-    }
-
-    .hero-image {
-        margin-top: 20px; /* Ajoute un espace entre le texte et l'image */
-    }
-
-    .hero-image img {
-        width: 100%;
-        height: auto;
-    }
-
-    .btn-outline, .btn {
-        width: 100%;
-        font-size: 12px;
-        padding: 8px 16px;
-    }
-
-    h3 {
-        font-size: 18px;
-    }
-
-    p {
-        font-size: 14px;
-    }
-}
-    </style>
+    <title>Diaime Makon Wilson | Portfolio Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <h1>WTech</h1>
-        </div>
-        <nav class="navbar">
+
+    <header>
+        <nav>
+            <div class="logo">DMW<span>.</span></div>
             <ul>
-                <li><a href="#hero1"><b>HOME</b></a></li>
-                <li><a href="cv.html">A PROPOS</a></li>
-                <li><a href="#SERVICE"><b>SERVICE</b></a></li>
-                <li><a href="#contact"><b>CONTACT</b></a></li>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
+            <a href="contact.html" class="btn-cta">Parlons-en</a>
         </nav>
     </header>
 
-    <section class="hero1">
-        <div class="hero-content1">
-            <h2>Je me nomme <b>DIAIME MAKON WILSON</b> et je suis <b>DEVELOPPEUR WEB.</b></h2>
-            <p>>Passionné par la création de sites modernes et fonctionnels, je me forme aux technologies du web pour concevoir des interfaces claires et intuitives. Curieux et motivé, j'aime apprendre en continu et relever de nouveaux défis pour améliorer mes compétences et proposer des solutions adaptées aux besoins des utilisateurs..</p>
-            <a href="#contact" class="btn-outline">ME CONTACTER</a>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="badge">Disponible pour de nouveaux projets</span>
+            <h1 id="hero-name">Diaime Makon <span>Wilson</span></h1>
+            <p class="subtitle">Frontend Developer & UI/UX Designer spécialisé dans les interfaces immersives.</p>
+            <div class="hero-btns">
+                <a href="contact.html" class="btn-cta">Parlons-en</a>
+                <a href="cv.html" class="btn-cta">CV<i class="fas fa-download"></i></a>
+            </div>
         </div>
         <div class="hero-image">
-            <img src="IMG_20250731_020758_961.webp" alt="Moi">
+            <img src="IMG_20250731_020758_961.webp" alt="3D Tech Element" class="floating">
         </div>
     </section>
 
-    <section class="hero2">
-        <div class="hero-image">
-            <img src="IMG_20250813_074315_562.jpg" alt="ME">
-        </div>
-        <div class="hero-content2">
-            <h3>Je suis <b>DIAIME MAKON WILSON</b>, <b>Designeur</b> et <b>Developpeur web</b>.</h3>
-            <p><b>WTech</b> est une start-up innovante spécialisée dans le <b>développement web</b>. Nous accompagnons entreprises et particuliers dans la créations de sites modernes, performants et adaptés à leurs besoins.</p>
-            <a href="cv.html" class="btn">En savoir plus</a>
-        </div>
-    </section>
-
-    <section class="SERVICES" id="SERVICE">
-        <h3><u>NOS SERVICES</u></h3>
-        <div class="SERVICE">
-            <h4>Développement Web</h4>
-            <p>Création de sites web performants et adaptés à vos besoins.</p>
-        </div>
-        <div class="SERVICE">
-            <h4>Web Design</h4>
-            <p>Conception d'interfaces modernes et esthétiques.</p>
-        </div>
-    </section>
-
-    <section class="PROJETS">
-        <h3><u>NOS PROJETS</u></h3>
-        <div class="projet-grid">
-            <div>
-                <h4>Projet 1</h4>
-                <div class="thumb" style="height: 200px;"></div>
+    <section id="about" class="about">
+        <div class="about-inner">
+            <div class="about-text">
+                <h2 class="section-title">À Propos <span>de Moi</span></h2>
+                <p>Je suis Diaime Makon Wilson, développeur front-end et designer UI/UX passionné par la création d'expériences numériques élégantes et intuitives. J'aime transformer des idées en interfaces performantes et accessibles.</p>
+                <ul class="about-list">
+                    <li><strong>Expérience:</strong> 1+ ans en développement web</li>
+                    <li><strong>Focus:</strong> React, HTML, CSS, Design d'interfaces</li>
+                    <li><strong>Approche:</strong> Design centré utilisateur & code maintenable</li>
+                </ul>
             </div>
-            <div>
-                <h4>Projet 2</h4>
-                <div class="thumb" style="height: 200px;"></div>
-            </div>
-            <div>
-                <h4>Projet 3</h4>
-                <div class="thumb" style="height: 200px;"></div>
-            </div>
-            <div>
-                <h4>Projet 4</h4>
-                <div class="thumb" style="height: 200px;"></div>
+            <div class="about-image">
+                <img src="IMG_20250813_074315_562.jpg" alt="Portrait" />
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h3>Contact</h3>
-        <div class="card-contact">
-            <form action="#" onsubmit="alert('Formulaire de démo — remplacez l\'action par votre endpoint.'); return false;">
-                <input type="text" placeholder="Votre nom" required>
-                <input type="email" placeholder="Votre email" required>
-                <textarea placeholder="Message" required></textarea>
-                <div style="display: flex; gap: 10px; justify-content: flex-end;">
-                    <button type="reset">Effacer</button>
-                    <button type="submit">Envoyer</button>
+    <section id="skills" class="skills">
+        <h2 class="section-title">Mes Compétences <span>Tech</span></h2>
+        <div class="skills-grid">
+            <div class="skill-card reveal">
+                <i class="fab fa-react"></i>
+                <h3>React.js</h3>
+                <div class="progress-bar"><div class="progress" style="width: 55%;"></div></div>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fab fa-figma"></i>
+                <h3>UI/UX Design</h3>
+                <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+                <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-code"></i>
+                <h3>Clean Code</h3>
+                <div class="progress-bar"><div class="progress" style="width: 98%;"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 class="section-title">Projets <span>Récents</span></h2>
+        <div class="project-grid">
+            <article class="project-card">
+                <img src="portfolio-project-1.jpg" alt="Project 1">
+                <div class="project-info">
+                    <h3>Interface E-commerce</h3>
+                    <p>Design d'une expérience d'achat rapide et accessible avec animations micro-interactions.</p>
+                    <a href="#" class="project-link">Voir le projet</a>
                 </div>
-            </form>
+            </article>
+            <article class="project-card">
+                <img src="portfolio-project-3.jpg" alt="Project 2">
+                <div class="project-info">
+                    <h3>Dashboard Analytics</h3>
+                    <p>Visualisation de données en temps réel et composants réutilisables avec React.</p>
+                    <a href="#" class="project-link">Voir le projet</a>
+                </div>
+            </article>
+            <article class="project-card">
+                <img src="showcase-tech-app.jpg" alt="Project 3">
+                <div class="project-info">
+                    <h3>Application Mobile</h3>
+                    <p>Prototype UI/UX pour une app mobile avec parcours utilisateur optimisé.</p>
+                    <a href="#" class="project-link">Voir le projet</a>
+                </div>
+            </article>
         </div>
     </section>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">DMW<span>.</span></div>
+                <p>Je crée des interfaces soignées et performantes.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#projects">Projets</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Email: wilsondjems@gmail.com</p>
+            <p>Téléphone: +237 692 696 934</p>
+            </div>
+            <div class="footer-socials">
+                <h4>Suivez-moi</h4>
+                <div class="socials">
+                    <a href="https://github.com/Wilsondjems22" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/Diaime Makon Wilson" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/wilson_diaime" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/237692696934" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Diaime Makon Wilson — Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
